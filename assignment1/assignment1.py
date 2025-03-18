@@ -162,18 +162,16 @@ def pig_latin(text):
     for word in text.split():  # Split the sentence into words
         if word[0] in vowels:
             result.append(word + "ay")  # Rule 1: Starts with a vowel
-        elif word.startswith("qu"):
-            result.append(word[2:] + "quay")  # Rule 3: Starts with "qu"
         else:
-            # Rule 2: Move consonants to the end until a vowel is found
-            for i, letter in enumerate(word):
-                if letter in vowels or word[i:i+2] == "qu":
-                    result.append(word[i:] + word[:i] + "ay")
-                    break
+            # Rule 3: Special case for "qu"
+            if "qu" in word:
+                qu_index = word.index("qu") + 2
+                result.append(word[qu_index:] + word[:qu_index] + "ay")
+            else:
+                # Rule 2: Move consonants to the end until a vowel is found
+                for i, letter in enumerate(word):
+                    if letter in vowels:
+                        result.append(word[i:] + word[:i] + "ay")
+                        break
 
     return " ".join(result)  # Join the modified words back into a sentence
-
-print(pig_latin("apple"))          
-print(pig_latin("banana"))  
-print(pig_latin("quick brown fox"))
-print(pig_latin("elephant queue"))
