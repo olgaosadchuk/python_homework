@@ -163,7 +163,7 @@ def pig_latin(text):
         if word[0] in vowels:
             result.append(word + "ay")  # Rule 1: Starts with a vowel
         else:
-            # Rule 3: Special case for "qu"
+            # Rule 3: Special case for "qu!!!"
             if "qu" in word:
                 qu_index = word.index("qu") + 2
                 result.append(word[qu_index:] + word[:qu_index] + "ay")
