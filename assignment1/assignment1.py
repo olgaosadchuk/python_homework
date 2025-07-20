@@ -2,14 +2,10 @@
 def hello():
     return "Hello!"
 
-print(hello())
-
 
 # Task 2: Greet with a Formatted String
 def greet(name):
     return f"Hello, {name}!"
-
-print(greet("Olga"))
 
 
 #Task 3: Calculator
@@ -37,15 +33,11 @@ def calc(a, b, operation="multiply"):
     except TypeError:
         return "You can't multiply those values!"   
     
-print(calc(10, 5))  
-print(calc(150, 0, "divide"))  
-print(calc("Olga", "Olga"))  
-
 
 # Task 4: Data Type Conversion
-def data_type_conversion(value, data_type):
+def data_type_conversion(value, type):
     try:
-        match data_type:
+        match type:
             case "float":
                 return float(value)
             case "str":
@@ -55,10 +47,7 @@ def data_type_conversion(value, data_type):
             case _:
                 return "Invalid data type requested."
     except ValueError:
-        return f"You can't convert {value} into a {data_type}."   
-
-print(data_type_conversion("123", "int"))
-print(data_type_conversion("Olga", "float"))
+        return f"You can't convert {value} into a {type}."   
 
 
 #Task 5: Grading System, Using *args
@@ -86,13 +75,11 @@ print(grade("nonsense", 60, 90))
 
 #Task 6: Use a For Loop with a Range
 def repeat(string, count):
-    result = ""
-    for _ in range(count):
-        result += string
-    return result
+    return string * count
 
 print(repeat("Hello", 3)) 
-print(repeat("Olga", 1))    
+print(repeat("Olga", 1))  
+print(repeat("AAA ", 5))  
 
 
 #Task 7: Student Scores, Using **kwargs
@@ -175,3 +162,10 @@ def pig_latin(text):
                         break
 
     return " ".join(result)  # Join the modified words back into a sentence
+
+print(pig_latin("apple"))
+print(pig_latin("cream"))
+print(pig_latin("question"))
+
+
+
